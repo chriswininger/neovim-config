@@ -32,3 +32,10 @@ vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 
 -- format with stylua
 vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+
+-- simplify split navigation (hold down ctrl + h/j/k/l together)
+vim.keymap.set('n', '<C-h>', '<C-w>h') -- Move to the window on the left
+vim.keymap.set('n', '<C-j>', '<C-w>j') -- Move to the window below
+vim.keymap.set('n', '<C-k>', '<C-w>k') -- Move to the window above
+vim.keymap.set('n', '<C-l>', '<C-w>l') -- Move to the window on the right
+
