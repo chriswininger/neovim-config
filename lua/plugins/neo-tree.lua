@@ -11,6 +11,9 @@ return {
     vim.api.nvim_create_autocmd("VimEnter", {
       callback = function()
         vim.cmd("Neotree toggle")
+
+        -- Switch back to the previous window (keep focus on document being edited)
+        vim.cmd("wincmd p")
       end
     })
   end,
