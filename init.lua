@@ -39,6 +39,9 @@ vim.keymap.set('n', '<C-j>', '<C-w>j') -- Move to the window below
 vim.keymap.set('n', '<C-k>', '<C-w>k') -- Move to the window above
 vim.keymap.set('n', '<C-l>', '<C-w>l') -- Move to the window on the right
 
+-- rename a function or variable
+vim.keymap.set("n", "<leader>rn", ":IncRename ")
+
 -- assoicate Jenkins.* as a jenkins file
 vim.filetype.add({
   pattern = {
