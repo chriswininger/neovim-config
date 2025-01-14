@@ -13,10 +13,16 @@ return {
 					"lua_ls",
 					"rust_analyzer",
 					"tsserver", -- javascript
-				},
+          "jdtls",
+        },
 			})
 		end,
 	},
+  {
+     "mfussenegger/nvim-jdtls",
+     -- https://eruizc.dev/blog/en/java-with-neovim/
+     -- https://github.com/mfussenegger/nvim-jdtls 
+  },
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
@@ -25,6 +31,7 @@ return {
 			lspconfig.lua_ls.setup({})
 			lspconfig.tsserver.setup({})
 			lspconfig.rust_analyzer.setup({})
+      --lspconfig.jdtls.setup({})
 		end,
 	},
 }
