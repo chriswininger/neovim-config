@@ -25,6 +25,8 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 -- Neotree lets us browse files (if it has focus, hit a to add a new file or d to delete one)
 vim.keymap.set("n", "<leader>n", ":Neotree filesystem reveal left<CR>")
+
+-- ===============================
 -- lsp key bindings
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
@@ -32,12 +34,18 @@ vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 
 -- format with stylua
 vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+-- ========================================
 
 -- simplify split navigation (hold down ctrl + h/j/k/l together)
-vim.keymap.set('n', '<C-h>', '<C-w>h') -- Move to the window on the left
-vim.keymap.set('n', '<C-j>', '<C-w>j') -- Move to the window below
-vim.keymap.set('n', '<C-k>', '<C-w>k') -- Move to the window above
-vim.keymap.set('n', '<C-l>', '<C-w>l') -- Move to the window on the right
+-- switch pains with leader key + arrows
+vim.api.nvim_set_keymap('n', '<Leader><Up>', '<C-w>k', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader><Down>', '<C-w>j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader><Left>', '<C-w>h', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader><Right>', '<C-w>l', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<C-h>', '<C-w>h') -- Move to the window on the left
+-- vim.keymap.set('n', '<C-j>', '<C-w>j') -- Move to the window below
+-- vim.keymap.set('n', '<C-k>', '<C-w>k') -- Move to the window above
+-- vim.keymap.set('n', '<C-l>', '<C-w>l') -- Move to the window on the right
 
 -- rename a function or variable
 vim.keymap.set("n", "<leader>rn", ":IncRename ")
