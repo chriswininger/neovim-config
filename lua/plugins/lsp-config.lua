@@ -12,8 +12,9 @@ return {
 				ensure_installed = {
 					"lua_ls",
 					"rust_analyzer",
-					"ts_ls", -- javascript
-          "jdtls",
+				  "ts_ls", -- javascript
+          "jdtls", -- java (part of the config, might not be needed, see nvim-jdtls and ftplugin for more info)
+          "bashls",
         },
 			})
 		end,
@@ -31,6 +32,7 @@ return {
 			lspconfig.lua_ls.setup({})
 			lspconfig.ts_ls.setup({})
 			lspconfig.rust_analyzer.setup({})
+      lspconfig.bashls.setup({})
       --lspconfig.jdtls.setup({})
 		end,
 	},
