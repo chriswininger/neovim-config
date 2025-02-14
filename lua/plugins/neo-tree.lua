@@ -16,6 +16,18 @@ return {
         vim.cmd("wincmd p")
       end
     })
+
+    -- hide . files by default but not git ignored files
+    -- you can show hiden files by pressing shift+h
+    require("neo-tree").setup({
+      filesystem = {
+        filtered_items = {
+          visible = true,
+          hide_dotfiles = true,
+          hide_gitignored =false,
+        }
+      },
+    })
   end,
 }
 

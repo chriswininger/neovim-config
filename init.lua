@@ -26,14 +26,22 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 -- Neotree lets us browse files (if it has focus, hit a to add a new file or d to delete one)
 vim.keymap.set("n", "<leader>n", ":Neotree filesystem reveal left<CR>")
 
--- ===============================
--- lsp key bindings
+-- ==========  LSP Key Bindings =====================
+-- show details about the current postion (shift+k is visual editing mode)
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+-- jump to the definition
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+-- jump to usage
+vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
+-- show possible fixes for an issue (code action)
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
-
--- format with stylua
+-- show the rest of a cut off code hint or error
+vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, {})
+-- format with style
 vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+-- jump to next issue
+vim.keymap.set('n', '<leader>n', vim.diagnostic.goto_next, opts)
+
 -- ========================================
 
 -- simplify split navigation (hold down ctrl + h/j/k/l together)
