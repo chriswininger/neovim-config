@@ -15,6 +15,7 @@ return {
 				  "ts_ls", -- javascript
           "jdtls", -- java (part of the config, might not be needed, see nvim-jdtls and ftplugin for more info)
           "bashls",
+          "pylsp",
         },
 			})
 		end,
@@ -29,10 +30,13 @@ return {
 		config = function()
 			local lspconfig = require("lspconfig")
 
-			lspconfig.lua_ls.setup({})
-			lspconfig.ts_ls.setup({})
-			lspconfig.rust_analyzer.setup({})
-      lspconfig.bashls.setup({})
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
+
+			lspconfig.lua_ls.setup({ capabilities = capabilities })
+			lspconfig.ts_ls.setup({ capabilities = capabilities })
+			lspconfig.rust_analyzer.setup({ capabilities = capabilities })
+      lspconfig.bashls.setup({ capabilities = capabilities })
+      lspconfig.pylsp.setup({})
       --lspconfig.jdtls.setup({})
 		end,
 	},

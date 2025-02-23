@@ -24,7 +24,7 @@ vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 -- Neotree lets us browse files (if it has focus, hit a to add a new file or d to delete one)
-vim.keymap.set("n", "<leader>n", ":Neotree filesystem reveal left<CR>")
+vim.keymap.set("n", "<leader>t", ":Neotree filesystem reveal left<CR>")
 
 -- ==========  LSP Key Bindings =====================
 -- show details about the current postion (shift+k is visual editing mode)
