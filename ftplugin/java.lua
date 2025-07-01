@@ -21,6 +21,8 @@ local config = {
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+    -- This line dynamically resolves the correct launcher JAR for JDTLS, making your setup robust to updates.
+    -- :lua print(vim.fn.glob(vim.fn.stdpath('data') .. '/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar'))
     '-jar', vim.fn.glob(vim.fn.stdpath('data') .. '/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar'),
     '-configuration', vim.fn.stdpath('data') .. '/mason/packages/jdtls/config_mac',
     '-data', vim.fn.expand('~/.cache/jdtls-workspace'),
