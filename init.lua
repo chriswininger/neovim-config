@@ -16,6 +16,8 @@ vim.g.mapleader = " "
 -- package manager layz https://lazy.folke.io/installation
 require("config.lazy")
 
+-- no keybinding but to update dendpendencies after changing pom or gradle do :JdtUpdateConfig
+
 -- === key bindings to access features of various plugins ===
 -- telescope lets us search files, try space-bar ff, for example (we could put this in plugin config block but I like it here)
 local builtin = require("telescope.builtin")
