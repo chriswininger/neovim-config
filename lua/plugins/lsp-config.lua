@@ -28,16 +28,20 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			local lspconfig = require("lspconfig")
-
       local capabilities = require('blink.cmp').get_lsp_capabilities()
+      local function setup(server, opts)
+        opts = opts or {}
+        opts.capabilities = opts.capabilities or capabilities
+        vim.lsp.config(server, opts)
+        vim.lsp.enable(server)
+      end
 
-			lspconfig.lua_ls.setup({ capabilities = capabilities })
-			lspconfig.ts_ls.setup({ capabilities = capabilities })
-			lspconfig.rust_analyzer.setup({ capabilities = capabilities })
-      lspconfig.bashls.setup({ capabilities = capabilities })
-      lspconfig.pylsp.setup({})
-      --lspconfig.jdtls.setup({})
+      setup("lua_ls")
+      setup("ts_ls")
+      setup("rust_analyzer")
+      setup("bashls")
+      setup("pylsp", {}) -- uses default capabilities
+      -- setup("jdtls") -- typically configured via nvim-jdtls / ftplugin
 		end,
 	},
 }
