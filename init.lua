@@ -40,7 +40,9 @@ vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 -- show the rest of a cut off code hint or error
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, {})
 -- format with style
-vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+vim.keymap.set("n", "<leader>gf", function()
+  require("conform").format({ async = true, lsp_format = "fallback" })
+end, {})
 -- jump to next issue
 vim.keymap.set('n', '<leader>n', vim.diagnostic.goto_next, opts)
 
